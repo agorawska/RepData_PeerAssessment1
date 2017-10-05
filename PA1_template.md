@@ -138,7 +138,7 @@ stepsPerDayNoNa <- aggregate(activityNoNa$steps,by=list(activityNoNa$date),sum,n
 names(stepsPerDayNoNa)<-c("date","steps")
 
 #histogram of the total number of steps taken each day
-hist(x = stepsPerDayNoNa$steps, breaks = 11, xlab = "Total number of steps in thousands", main = "Histogram of total number of steps taken each day",ylim=c(0,25),xlim=c(0,22000))
+hist(x = stepsPerDayNoNa$steps, breaks = 11, xlab = "Total number of steps in thousands", main = "Histogram of total number of steps taken each day",xlim=c(0,22000),ylim=c(0,25))
 ```
 
 ![](PA1_template_files/figure-html/naValues-1.png)<!-- -->
