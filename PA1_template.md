@@ -195,6 +195,7 @@ activityNoNa<-mutate(activityNoNa,weekday=wday(activityNoNa$date))
 ```r
 #changing weekday to a factor 
 activityNoNa$weekday<-as.factor(activityNoNa$weekday)
+
 #changing weekday levels to 'weekday' & 'weekend'
 levels(activityNoNa$weekday)<-c("weekday","weekday","weekday","weekday","weekday","weekend","weekend")
 
@@ -204,7 +205,7 @@ names(stepsPerIntervalNoNa)<-c("interval","weekday","steps")
 
 #plotting average number of steps taken per each interval by weekday factor
 ggplot(data=stepsPerIntervalNoNa, aes(x=as.numeric(interval),y=steps))+
-  xlab("Time interval")+ylab("Average number of steps")+geom_line()+facet_grid(stepsPerIntervalNoNa$weekday~.)+
+  xlab("Time interval")+ylab("Average number of steps")+        geom_line()+facet_grid(stepsPerIntervalNoNa$weekday~.)+
   ggtitle("Average number of steps in time intervals")
 ```
 

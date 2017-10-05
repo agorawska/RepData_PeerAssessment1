@@ -88,7 +88,7 @@ stepsPerDayNoNa <- aggregate(activityNoNa$steps,by=list(activityNoNa$date),sum,n
 names(stepsPerDayNoNa)<-c("date","steps")
 
 #histogram of the total number of steps taken each day
-hist(x = stepsPerDayNoNa$steps, breaks = 11, xlab = "Total number of steps in thousands", main = "Histogram of total number of steps taken each day",ylim=c(0,20),xlim=c(0,22000))
+hist(x = stepsPerDayNoNa$steps, breaks = 11, xlab = "Total number of steps in thousands", main = "Histogram of total number of steps taken each day",ylim=c(0,25),xlim=c(0,22000))
 
 #Mean number of steps taken each day
 stepMeanNoNa<-mean(stepsPerDayNoNa$steps,na.rm = TRUE)
@@ -107,6 +107,7 @@ activityNoNa<-mutate(activityNoNa,weekday=wday(activityNoNa$date))
 
 #changing weekday to a factor 
 activityNoNa$weekday<-as.factor(activityNoNa$weekday)
+
 #changing weekday levels to 'weekday' & 'weekend'
 levels(activityNoNa$weekday)<-c("weekday","weekday","weekday","weekday","weekday","weekend","weekend")
 
@@ -116,6 +117,6 @@ names(stepsPerIntervalNoNa)<-c("interval","weekday","steps")
 
 #plotting average number of steps taken per each interval by weekday factor
 ggplot(data=stepsPerIntervalNoNa, aes(x=as.numeric(interval),y=steps))+
-  xlab("Time interval")+ylab("Average number of steps")+geom_line()+facet_grid(stepsPerIntervalNoNa$weekday~.)+
+  xlab("Time interval")+ylab("Average number of steps")+        geom_line()+facet_grid(stepsPerIntervalNoNa$weekday~.)+
   ggtitle("Average number of steps in time intervals")
 ```
